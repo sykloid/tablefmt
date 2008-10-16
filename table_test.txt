@@ -1,0 +1,10 @@
+ 1.new york.balloons
+ 2.los angeles.funniness
+ 3.phoenix.cows
+
+ canada toronto french
+ us washington english
+ australia canberra english
+ france paris french
+ britain london english
+ russia moscow russian

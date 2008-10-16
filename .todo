@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<todo version="0.1.20">
+    <note priority="high" time="1224146624">
+        Start git tracking
+    </note>
+    <note priority="medium" time="1224146649">
+        Features
+        <note priority="high" time="1224146703">
+            Option Parsing
+        </note>
+        <note priority="medium" time="1224146687">
+            Support for start, end and middle delimiters
+        </note>
+        <note priority="medium" time="1224146722">
+            Support for table headers
+        </note>
+        <note priority="medium" time="1224146790">
+            Whitespace Stripping
+        </note>
+        <note priority="low" time="1224146848">
+            Integration with vim outliner?
+        </note>
+    </note>
+</todo>
