@@ -12,7 +12,7 @@ lines = []
 
 # Get input.
 while True:
-    lines.append(line.split(inputDelimiter))
+    lines.append(filter(None, line.split(inputDelimiter)))
     try :
         line = raw_input()
     except EOFError :
