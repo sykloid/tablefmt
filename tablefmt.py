@@ -2,12 +2,15 @@
 # P.C. Shyamshankar <sykora@lucentbeing.com>
 # http://lucentbeing.com
 
-# TODO: Get this from optparse
-inputDelimiter = ' '
-outputDelimiter = ' '
-
+from optparse import OptionParser
+from sys import argv
 
 def formatter(lines, inputDelimiter, outputDelimiter) :
+    # Split lines based on inputDelimiter.
+
+    lines = [filter(None, line.split(inputDelimiter)) for line in lines]
+
+
     # Assuming all rows are the same length,
     numColumns = len(lines[0])
     widths = []
@@ -29,7 +32,28 @@ def formatter(lines, inputDelimiter, outputDelimiter) :
 
     return output
 
+def parseOptions(argv) :
+    parser = OptionParser()
+
+    parser.add_option('-i', '--input-delimiter',
+                      action = 'store',
+                      type = 'string',
+                      dest = 'inputDelimiter',
+                      default = ' ')
+
+    parser.add_option('-o', '--output-delimiter',
+                      action = 'store',
+                      type = 'string',
+                      dest = 'outputDelimiter',
+                      default = ' ')
+
+    options, args = parser.parse_args(argv[1:])
+
+    return options
+
+
 def main() :
+    options = parseOptions(argv)
     # Get input.
     lines = []
 
@@ -39,13 +63,15 @@ def main() :
         return
 
     while True:
-        lines.append(filter(None, line.split(inputDelimiter)))
+        lines.append(line)
         try :
             line = raw_input()
         except EOFError :
             break
     
-    formattedLines = formatter(lines, inputDelimiter, outputDelimiter)
+    formattedLines = formatter(lines,
+                               options.inputDelimiter,
+                               options.outputDelimiter)
 
     for line in formattedLines :
         print line
